@@ -1,8 +1,6 @@
-# Rspec::Traveling
+# RSpec::Traveling
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rspec/traveling`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+No more write `around { travel_to '2019-01-01' }` every examples, simply add travel_to at metadata.
 
 ## Installation
 
@@ -22,7 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In rails_helper.rb
+```ruby
+require 'rspec-traveling'
+```
+
+In your test cases:
+```
+RSpec.describe AwesomeModel do
+  describe 'A time-dependent spec', travel_to: '2019-01-01' do
+    # Date.today => '2019-01-01'
+  end
+end
+```
 
 ## Development
 
@@ -40,4 +50,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Rspec::Traveling project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/rspec-traveling/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the RSpec::Traveling project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/rspec-traveling/blob/master/CODE_OF_CONDUCT.md).
